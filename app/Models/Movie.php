@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Services\Interfaces\MovieLookup;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Cache;
 
 class Movie extends UploadableModel
@@ -19,9 +20,9 @@ class Movie extends UploadableModel
         ];
     }
 
-    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function comments(): MorphMany
     {
-        return $this->hasMany(Comment::class);
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     public function formatForShow(): array
