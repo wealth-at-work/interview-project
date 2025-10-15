@@ -18,6 +18,12 @@ class Movie extends UploadableModel
             'added_by' => $this->uploader->name
         ];
     }
+
+    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function formatForShow(): array
     {
         return Cache::remember(
