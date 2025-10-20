@@ -15,4 +15,4 @@ Task:
 3. What your feature does and how it works (and **why** it works!)
 4. The technical design decisions you made while implementing the feature.
 
-Submission deadline: 9am on Thursday 23rd
+Submission deadline: 9am on Thursday 23rd. Please share with your recruiter your github link so I can review your code before second interviews.
