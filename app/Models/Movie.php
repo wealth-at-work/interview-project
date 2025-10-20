@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Services\Interfaces\MovieLookup;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Cache;
 
 class Movie extends UploadableModel
@@ -18,6 +19,12 @@ class Movie extends UploadableModel
             'added_by' => $this->uploader->name
         ];
     }
+
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
     public function formatForShow(): array
     {
         return Cache::remember(

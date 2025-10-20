@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import CommentsList from '@/components/CommentList.vue';
+
 interface Movie {
     id: number;
     title: string;
@@ -21,8 +23,18 @@ interface Movie {
     actors: string[];
 }
 
+interface Comment {
+    id: number;
+    title: string;
+    body: string;
+    user_id: number;
+    user_name: string;
+    created_at: string;
+}
+
 defineProps<{
     movie: Movie;
+    comments: Comment[];
 }>();
 </script>
 
@@ -30,7 +42,7 @@ defineProps<{
     <div class="min-h-screen bg-cream">
         <div class="container mx-auto px-4 py-12">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-white border-2 border-dark-green rounded-lg overflow-hidden p-8">
+                <div class="bg-white border-2 border-dark-green rounded-lg overflow-hidden p-8 mb-8">
                     <div class="flex flex-col md:flex-row gap-8">
                         <!-- Poster -->
                         <div class="flex-shrink-0">
@@ -85,6 +97,8 @@ defineProps<{
                         </div>
                     </div>
                 </div>
+
+                <CommentsList :comments="comments" />
             </div>
         </div>
     </div>

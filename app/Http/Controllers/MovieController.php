@@ -11,7 +11,12 @@ class MovieController extends Controller
     public function show(Movie $movie)
     {
         return Inertia::render('Movie/Show', [
-            'movie' => $movie->formatForShow()
+            'movie' => $movie->formatForShow(),
+            'comments' => $movie->comments()
+                ->with('user')//fixed!
+                ->latest()
+                ->get()
+                ->map(fn($comment) => $comment->formatForShow()),
         ]);
     }
 }
