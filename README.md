@@ -1,5 +1,7 @@
 Interview Task (20/10/2025)
 
+This repository contains the source code for the quck example "library" project we reviewed together in your first interview. 
+
 - Please fork this repository, and commit all changes you make
 - Please do not spend ages on this task (3h or less!) - it's a quick turn around, and the purpose is simply to get some code you've written that you're proud of to explain during the second intervew.
 - The attached "sqlite" database file and ".env" may be used - but any database schema changes should be included in migrations and/or seeders if necessary to demonstrate as I will not reimport databases to test. 
