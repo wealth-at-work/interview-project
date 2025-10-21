@@ -2,13 +2,22 @@
 
 namespace App\Models;
 
+use App\HasExistingRecord;
 use App\Services\Interfaces\MovieLookup;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Cache;
 
 class Movie extends UploadableModel
 {
+    use HasFactory,
+        HasExistingRecord;
+
+    protected $fillable = [
+        'title',
+        'poster',
+        'added_by',
+    ];
 
     public function formatForIndex(): array
     {
