@@ -15,7 +15,7 @@ defineProps<{
 </script>
 
 <template>
-    <div class="min-h-screen bg-cream">
+    <div class="min-h-screen bg-cream text-slate-800 antialiased">
         <div class="container mx-auto px-4 py-12">
             <!-- Books Section -->
             <section class="mb-16">
@@ -34,10 +34,10 @@ defineProps<{
                                 class="w-full aspect-[2/3]  object-cover"
                             />
                             <div class="p-4">
-                                <h3 class="text-lg font-semibold text-dark-green group-hover:underline mb-2">
+                                <h3 class="text-lg font-semibold font-serif tracking-tight leading-tight text-dark-green group-hover:underline mb-2">
                                     {{ book.title }}
                                 </h3>
-                                <p class="text-sm text-gray-600">
+                                <p class="text-sm text-gray-700">
                                     Added by {{ book.added_by }}
                                 </p>
                             </div>
@@ -66,10 +66,11 @@ defineProps<{
                                 class="w-full aspect-[2/3]  object-cover"
                             />
                             <div class="p-4">
-                                <h3 class="text-lg font-semibold text-dark-green group-hover:underline mb-2">
+                                <!-- same title styling -->
+                                <h3 class="text-lg font-semibold font-serif tracking-tight leading-tight text-dark-green group-hover:underline mb-2">
                                     {{ movie.title }}
                                 </h3>
-                                <p class="text-sm text-gray-600">
+                                <p class="text-sm text-gray-700">
                                     Added by {{ movie.added_by }}
                                 </p>
                             </div>

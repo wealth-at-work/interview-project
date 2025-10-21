@@ -17,8 +17,8 @@ class HomeController extends Controller
     public function index(): \Inertia\Response
     {
         return Inertia::render('Home',[
-            'books' => $this->bookRepository->getLatest(4)->map(fn($book) => $book->formatForIndex()),
-            'movies' => $this->movieRepository->getLatest(4)->map(fn($movie) => $movie->formatForIndex())
+            'books' => $this->bookRepository->getLatest()->map(fn($book) => $book->formatForIndex()),
+            'movies' => $this->movieRepository->getLatest()->map(fn($movie) => $movie->formatForIndex())
         ]);
     }
 }
