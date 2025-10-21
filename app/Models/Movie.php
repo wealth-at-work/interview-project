@@ -29,6 +29,9 @@ class Movie extends UploadableModel
         ];
     }
 
+    /**
+     * @return MorphMany<Comment, $this>
+     */
     public function comments(): MorphMany
     {
         return $this->morphMany(Comment::class, 'commentable');

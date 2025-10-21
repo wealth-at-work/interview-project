@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Movie;
 use Inertia\Inertia;
 
@@ -22,7 +23,7 @@ class MovieController extends Controller
                 ->with('user')// fixed!
                 ->latest()
                 ->get()
-                ->map(fn ($comment) => $comment->formatForShow()),
+                ->map(fn (Comment $comment) => $comment->formatForShow()),
         ]);
     }
 }
