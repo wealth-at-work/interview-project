@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CommentResource;
 use App\Models\Book;
 use Inertia\Inertia;
 
@@ -15,11 +18,9 @@ class BookController extends Controller
                 'title' => $book->title,
                 'picture' => $book->cover ?? config('defaults.book_picture'),
             ],
-            'comments' => $book->comments()
-                ->with('user')
-                ->latest()
-                ->get()
-                ->map(fn($comment) => $comment->formatForShow()),
+            'comments' => CommentResource::collection(
+                $book->comments()->with('user')->latest()->get()
+            ),
         ]);
     }
 }

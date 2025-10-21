@@ -1,15 +1,18 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Repositories;
 
 use App\Models\Book;
-use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method \Illuminate\Database\Eloquent\Collection<int, Book> getLatest(int $limit)
+ */
 class BookRepository extends BaseRepository
 {
     protected function model(): Book
     {
-        return new Book();
+        return new Book;
     }
-
 }

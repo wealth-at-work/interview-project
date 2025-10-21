@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Services\Interfaces;
+declare(strict_types = 1);
 
-use Illuminate\Http\JsonResponse;
+namespace App\Services\Interfaces;
 
 interface MovieLookup
 {
     public function getMovieByName(string $name): array;
+
+    public function getMoviesByName(string $name): array;
+
+    public function getMovieByRemoteId(string $remoteId): array;
 }

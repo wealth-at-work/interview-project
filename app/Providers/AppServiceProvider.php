@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Providers;
 
 use App\Services\Interfaces\MovieLookup;
@@ -21,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app->bind(MovieLookup::class,OmdbLookup::class);
+        $this->app->bind(MovieLookup::class, OmdbLookup::class);
     }
 }
