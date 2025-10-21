@@ -21,6 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app->bind(MovieLookup::class,OmdbLookup::class);
+        $this->app->bind(MovieLookup::class, OmdbLookup::class);
     }
 }

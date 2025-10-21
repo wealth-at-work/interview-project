@@ -8,7 +8,6 @@ class MovieRepository extends BaseRepository
 {
     protected function model(): Movie
     {
-        return new Movie();
+        return new Movie;
     }
-
 }

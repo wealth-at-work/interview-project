@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Movie>
@@ -20,7 +19,7 @@ class MovieFactory extends Factory
         return [
             'title' => fake()->name(),
             'poster' => fake()->imageUrl(),
-            'added_by' => 1 // Manually setting user id
+            'added_by' => 1, // Manually setting user id
         ];
     }
 }

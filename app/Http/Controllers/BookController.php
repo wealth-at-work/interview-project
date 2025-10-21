@@ -19,7 +19,7 @@ class BookController extends Controller
                 ->with('user')
                 ->latest()
                 ->get()
-                ->map(fn($comment) => $comment->formatForShow()),
+                ->map(fn ($comment) => $comment->formatForShow()),
         ]);
     }
 }

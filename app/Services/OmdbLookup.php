@@ -27,7 +27,7 @@ class OmdbLookup implements MovieLookup
             'plot' => 'full',
         ]);
 
-        if (!$response->successful() || $response->json('Response') === 'False') {
+        if (! $response->successful() || $response->json('Response') === 'False') {
             return [];
         }
 

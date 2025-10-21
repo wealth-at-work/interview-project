@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Cache;
 
 class Movie extends UploadableModel
 {
-    use HasFactory,
-        HasExistingRecord;
+    use HasExistingRecord,
+        HasFactory;
 
     protected $fillable = [
         'title',
@@ -25,7 +25,7 @@ class Movie extends UploadableModel
             'id' => $this->id,
             'title' => $this->title,
             'picture' => strlen($this->poster) > 0 ? $this->poster : config('defaults.movie_picture'),
-            'added_by' => $this->uploader->name
+            'added_by' => $this->uploader->name,
         ];
     }
 
@@ -48,7 +48,7 @@ class Movie extends UploadableModel
         $movieDetails = app(MovieLookup::class)->getMovieByName($this->title);
 
         // If API fails, return minimal data without caching
-        if (!$movieDetails) {
+        if (! $movieDetails) {
             return [
                 'id' => $this->id,
                 'title' => $this->title,

@@ -37,7 +37,7 @@ class MovieImportController extends Controller
         // Fetch movie details
         $movieDetails = app(MovieLookup::class)->getMovieByRemoteId($remoteId);
 
-        if (!$movieDetails) {
+        if (! $movieDetails) {
             return redirect()->route('movies.add')
                 ->with('error', 'Movie not found. Please try searching again.');
         }
@@ -68,7 +68,7 @@ class MovieImportController extends Controller
         } catch (\Exception $e) {
             Log::error('Failed to create movie', [
                 'remote_id' => $remoteId,
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ]);
 
             return redirect()->route('movies.add')

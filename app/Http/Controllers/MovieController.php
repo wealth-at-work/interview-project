@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class MovieController extends Controller
@@ -20,10 +19,10 @@ class MovieController extends Controller
         return Inertia::render('Movie/Show', [
             'movie' => $movie->formatForShow(),
             'comments' => $movie->comments()
-                ->with('user')//fixed!
+                ->with('user')// fixed!
                 ->latest()
                 ->get()
-                ->map(fn($comment) => $comment->formatForShow()),
+                ->map(fn ($comment) => $comment->formatForShow()),
         ]);
     }
 }
