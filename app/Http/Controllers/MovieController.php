@@ -8,6 +8,13 @@ use Inertia\Inertia;
 
 class MovieController extends Controller
 {
+    public function index()
+    {
+        return Inertia::render('Movie/List', [
+            'movies' => Movie::all()->map(fn ($movie) => $movie->formatForIndex()),
+        ]);
+    }
+
     public function show(Movie $movie)
     {
         return Inertia::render('Movie/Show', [
