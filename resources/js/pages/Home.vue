@@ -51,7 +51,10 @@ defineProps<{
 
             <!-- Movies Section -->
             <section>
-                <h2 class="text-3xl font-bold text-dark-green mb-8">Latest Movies</h2>
+                <div class="flex justify-between mb-8">
+                    <h2 class="text-3xl font-bold text-dark-green">Latest Movies</h2>
+                    <a href="/movies" class="bg-dark-green text-white p-2 rounded-md h-10">View all</a>
+                </div>
                 <div v-if="movies.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <Link
                         v-for="movie in movies"
