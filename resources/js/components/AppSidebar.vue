@@ -11,29 +11,50 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard } from '@/routes';
+import { register, login, home } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import { BookOpen, Folder, LogIn, House, ClipboardList } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
+import { usePage } from '@inertiajs/vue3';
 
-const mainNavItems: NavItem[] = [
+const page = usePage();
+const user = page.props.auth.user;
+
+let mainNavItems: NavItem[] = [];
+
+if (!user) {
+    mainNavItems = [
+        {
+            title: 'register',
+            href: register(),
+            icon: ClipboardList,
+        },
+        {
+            title: 'login',
+            href: login(),
+            icon: LogIn,
+        },
+    ];
+}
+
+mainNavItems.push(
     {
-        title: 'Dashboard',
-        href: dashboard(),
-        icon: LayoutGrid,
-    },
-];
+        title: 'home',
+        href: home(),
+        icon: House,
+    }
+)
 
 const footerNavItems: NavItem[] = [
     {
-        title: 'Github Repo',
-        href: 'https://github.com/laravel/vue-starter-kit',
+        title: 'IMDB',
+        href: 'https://www.imdb.com/',
         icon: Folder,
     },
     {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#vue',
+        title: 'Goodreads',
+        href: 'https://www.goodreads.com/',
         icon: BookOpen,
     },
 ];
@@ -45,7 +66,7 @@ const footerNavItems: NavItem[] = [
             <SidebarMenu>
                 <SidebarMenuItem>
                     <SidebarMenuButton size="lg" as-child>
-                        <Link :href="dashboard()">
+                        <Link :href="register()">
                             <AppLogo />
                         </Link>
                     </SidebarMenuButton>
@@ -59,7 +80,9 @@ const footerNavItems: NavItem[] = [
 
         <SidebarFooter>
             <NavFooter :items="footerNavItems" />
-            <NavUser />
+            <NavUser
+                v-if="user"
+            />
         </SidebarFooter>
     </Sidebar>
     <slot />

@@ -1,21 +1,15 @@
 <script setup lang="ts">
 import CommentsList from '@/components/CommentList.vue';
+import { Link } from '@inertiajs/vue3';
 
 interface Movie {
     id: number;
     title: string;
     synopsis: string | null;
     ratings: {
-        imdb: {
-            score: string | null;
-            votes: string | null;
-        };
-        metacritic: {
-            score: string | null;
-        };
-        rotten_tomatoes: {
-            score: string | null;
-        };
+        imdb: { score: string | null; votes: string | null };
+        metacritic: { score: string | null };
+        rotten_tomatoes: { score: string | null };
     };
     poster: string;
     director: string | null;
@@ -35,11 +29,12 @@ interface Comment {
 defineProps<{
     movie: Movie;
     comments: Comment[];
+    similarMovies: Movie[];
 }>();
 </script>
 
 <template>
-    <div class="min-h-screen bg-cream">
+    <div class="min-h-screen bg-cream text-slate-800 antialiased">
         <div class="container mx-auto px-4 py-12">
             <div class="max-w-4xl mx-auto">
                 <div class="bg-white border-2 border-dark-green rounded-lg overflow-hidden p-8 mb-8">
@@ -55,7 +50,9 @@ defineProps<{
 
                         <!-- Details -->
                         <div class="flex-grow">
-                            <h1 class="text-4xl font-bold text-dark-green mb-4">{{ movie.title }}</h1>
+                            <h1 class="text-4xl md:text-5xl font-bold font-serif tracking-tight leading-tight text-dark-green mb-4">
+                                {{ movie.title }}
+                            </h1>
 
                             <!-- Ratings -->
                             <div class="flex gap-4 mb-6">
@@ -75,7 +72,7 @@ defineProps<{
 
                             <!-- Synopsis -->
                             <div v-if="movie.synopsis" class="mb-6">
-                                <h2 class="text-xl font-semibold text-dark-green mb-2">Synopsis</h2>
+                                <h2 class="text-xl font-semibold font-serif text-dark-green mb-2">Synopsis</h2>
                                 <p class="text-gray-700">{{ movie.synopsis }}</p>
                             </div>
 
@@ -95,6 +92,27 @@ defineProps<{
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Similar movies -->
+                <div class="bg-white border-2 border-dark-green rounded-lg overflow-hidden p-8 mb-8">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                        <Link
+                            v-for="similarMovie in similarMovies"
+                            :key="similarMovie.id"
+                            :href="`/movie/${similarMovie.id}`"
+                        class="group block"
+                        >
+                        <img
+                            :src="similarMovie.poster"
+                            :alt="similarMovie.title"
+                            class="w-full aspect-[2/3] object-cover rounded border-2 border-dark-green group-hover:shadow-md transition-shadow"
+                        />
+                        <div class="mt-2 text-sm font-semibold font-serif tracking-tight text-dark-green line-clamp-2 group-hover:underline">
+                            {{ similarMovie.title }}
+                        </div>
+                        </Link>
                     </div>
                 </div>
 

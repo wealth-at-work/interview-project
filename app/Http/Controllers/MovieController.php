@@ -13,10 +13,11 @@ class MovieController extends Controller
         return Inertia::render('Movie/Show', [
             'movie' => $movie->formatForShow(),
             'comments' => $movie->comments()
-                ->with('user')//fixed!
+                ->with('user')
                 ->latest()
                 ->get()
                 ->map(fn($comment) => $comment->formatForShow()),
+            'similarMovies' => Movie::findSimilar($movie)
         ]);
     }
 }
