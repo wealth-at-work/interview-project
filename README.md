@@ -1,18 +1,16 @@
-Interview Task (20/10/2025)
+## Features Implemented
 
-This repository contains the source code for the quck example "library" project we reviewed together in your first interview. 
+1. **Polymorphism and Favorites**
+   - Emphasized the concept of polymorphism by creating relationships that allow both books and movies to be added to favorites.
 
-- Please fork this repository, and commit all changes you make
-- Please do not spend ages on this task (3h or less!) - it's a quick turn around, and the purpose is simply to get some code you've written that you're proud of to explain during the second interview.
-- The attached "sqlite" database file and ".env" may be used - but any database schema changes should be included in migrations and/or seeders if necessary to demonstrate as I will not reimport databases to test. 
+2. **Single Responsibility Principle**
+   - Controllers were refactored to avoid being overloaded, ensuring each controller handles only one responsibility.
 
-Task:
-- Implement any feature of your choosing onto this codebase of the project that we worked with during the interview
-- You will be asked to explain:
+3. **Frontend Filtering**
+   - Added a frontend filter to search among previously cached books and movies.
+   - Users can filter content by type (`movies`, `books`, or `favorites`) and search by title.
 
-1. Why you chose the feature you did 
-2. How long you spent to add the code you added
-3. What your feature does and how it works (and **why** it works!)
-4. The technical design decisions you made while implementing the feature.
-
-Submission deadline: 9am on Thursday 23rd. Please share with your recruiter your GitHub link so I can review your code before second interviews.
+4. **UI Improvements**
+   - Implemented login functionality.
+   - Added a navigation bar for easier access to different sections.
+   - Enhanced the overall user experience with a clean and responsive layout.
