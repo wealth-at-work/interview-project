@@ -23,17 +23,17 @@ defineProps<{
                         <div
                             class="mb-1 flex h-9 w-9 items-center justify-center rounded-md"
                         >
-                            <AppLogoIcon
-                                class="size-9 fill-current text-[var(--foreground)] dark:text-white"
-                            />
+                            <img
+                                src="/assets/LogoNoBck.png"
+                                alt="App logo"
+                                class="size-50"
+                            />    
                         </div>
-                        <span class="sr-only">{{ title }}</span>
-                    </Link>
+                        <span>Wealth On Couch </span>
+                        <span>Digital Wealth, on your couch</span>
+                        <span class="sr-only">{{ title }}</span>                    </Link>
                     <div class="space-y-2 text-center">
                         <h1 class="text-xl font-medium">{{ title }}</h1>
-                        <p class="text-center text-sm text-muted-foreground">
-                            {{ description }}
-                        </p>
                     </div>
                 </div>
                 <slot />
