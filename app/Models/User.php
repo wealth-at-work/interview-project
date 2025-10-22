@@ -49,4 +49,14 @@ class User extends Authenticatable
             'two_factor_confirmed_at' => 'datetime',
         ];
     }
+
+    public function favorites()
+    {
+        return $this->hasMany(\App\Models\Favorite::class);
+    }
+
+    public function favoritedItems()
+    {
+        return $this->favorites()->with('favoritable');
+    }
 }

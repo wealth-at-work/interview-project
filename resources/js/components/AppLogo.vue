@@ -6,11 +6,15 @@ import AppLogoIcon from '@/components/AppLogoIcon.vue';
     <div
         class="flex aspect-square size-8 items-center justify-center rounded-md bg-sidebar-primary text-sidebar-primary-foreground"
     >
-        <AppLogoIcon class="size-5 fill-current text-white dark:text-black" />
+    <img
+        src="/assets/WealthOnCouchLogo.svg"
+        alt="App logo"
+        class="size-8"
+    />    
     </div>
     <div class="ml-1 grid flex-1 text-left text-sm">
         <span class="mb-0.5 truncate leading-tight font-semibold"
-            >Laravel Starter Kit</span
+            >Wealth On Couch</span
         >
     </div>
 </template>

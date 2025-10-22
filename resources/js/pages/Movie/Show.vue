@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import CommentsList from '@/components/CommentList.vue';
+import FavoriteButton from '@/components/FavoriteButton.vue';
+import AppHeaderLayout from '@/layouts/app/AppHeaderLayout.vue';
 
 interface Movie {
     id: number;
@@ -36,6 +38,10 @@ defineProps<{
     movie: Movie;
     comments: Comment[];
 }>();
+
+defineOptions({
+    layout: AppHeaderLayout
+});
 </script>
 
 <template>
@@ -72,6 +78,8 @@ defineProps<{
                                     <div class="text-lg font-semibold text-dark-green">{{ movie.ratings.rotten_tomatoes.score }}</div>
                                 </div>
                             </div>
+                            <FavoriteButton type="movie" :id="movie.id" />
+
 
                             <!-- Synopsis -->
                             <div v-if="movie.synopsis" class="mb-6">

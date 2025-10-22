@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import CommentsList from '@/components/CommentList.vue';
+import FavoriteButton from '@/components/FavoriteButton.vue';
+import AppHeaderLayout from '@/layouts/app/AppHeaderLayout.vue';
 
 interface Book {
     id: number;
@@ -20,6 +22,10 @@ defineProps<{
     book: Book;
     comments: Comment[];
 }>();
+
+defineOptions({
+    layout: AppHeaderLayout
+});
 </script>
 
 <template>
@@ -40,6 +46,7 @@ defineProps<{
                         <!-- Details -->
                         <div class="flex-grow">
                             <h1 class="text-4xl font-bold text-dark-green mb-4">{{ book.title }}</h1>
+                            <FavoriteButton type="book" :id="book.id" />
 
                             <div class="bg-cream border-2 border-dark-green rounded-lg p-6 text-center">
                                 <p class="text-xl text-dark-green font-semibold">
