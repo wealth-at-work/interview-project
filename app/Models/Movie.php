@@ -34,6 +34,10 @@ class Movie extends UploadableModel
                 $movieDetails = app(MovieLookup::class)->getMovieByName($this->title);
 
                 //What is wrong with this implementation?
+                //1 External api call inside model method
+                //2 Cache key is tied to db but the data is queried by title (This leads to assumes that titles are unique)   
+                //3 MovieDeatils can be null
+                //4 Difficult to test
                 return [
                     'id' => $this->id,
                     'title' => $this->title,
