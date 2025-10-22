@@ -20,7 +20,7 @@ defineProps<{
                         class="flex flex-col items-center gap-2 font-medium"
                     >
                         <div
-                            class="mb-1 flex h-9 w-9 items-center justify-center rounded-md"
+                            class="mb-1 flex items-center justify-center rounded-md"
                         >
                             <img
                                 src="/assets/LogoNoBck.png"
@@ -30,10 +30,9 @@ defineProps<{
                         </div>
                         <span>Wealth On Couch </span>
                         <span>Digital Wealth, on your couch</span>
-                        <span class="sr-only">{{ title }}</span>                    </Link>
-                    <div class="space-y-2 text-center">
+                        <span class="sr-only">{{ title }}</span>                    
                         <h1 class="text-xl font-medium">{{ title }}</h1>
-                    </div>
+                    </Link>
                 </div>
                 <slot />
             </div>
