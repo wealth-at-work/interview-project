@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $this->call(UserSeeder::class);
+        $this->call(MovieSeeder::class);
+        $this->call(BookSeeder::class);
+        $this->call(CommentSeeder::class);
+        //Comments to be run as last one as it depends on movies and books
     }
 }
